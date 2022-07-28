@@ -10,6 +10,7 @@ const EditorPanel = () => {
                          <button id='saturation'>Saturation</button>
                          <button id='inversion'>Inversion</button>
                          <button id='grayscale'>Grayscale</button>
+                         <button id='blur'>Blur</button>
                     </div>
                     <div className='slider'>
                          <div className='filter-info'>
