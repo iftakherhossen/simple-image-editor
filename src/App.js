@@ -153,14 +153,14 @@ const App = () => {
 
   return (
     <div>
-      <div className={`container ${image || 'disable'}`}>
+      <main className={`container ${image || 'disable'}`}>
         <h2>Simple Image Editor</h2>
         <div className='wrapper'>
           <EditorPanel />  
           <ImagePreview image={image} />
         </div>
         <Controls loadImage={loadImage} resetFilter={resetFilter} saveImage={saveImage} />
-      </div>
+      </main>
       <footer>
         <p>Created by <a href='https://iftakher-hossen.vercel.app/'>Iftakher Hossen</a></p>
       </footer>

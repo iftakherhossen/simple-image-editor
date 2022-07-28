@@ -30,8 +30,8 @@ const EditorPanel = () => {
                </div>
                <div className='zoom'>
                     <label className='title'>Zoom</label>
-                    <button id='zoom-in'><i class='bx bx-plus'></i></button>
-                    <button id='zoom-out'><i class='bx bx-minus' ></i></button>
+                    <button id='zoom-in'><i className='bx bx-plus'></i></button>
+                    <button id='zoom-out'><i className='bx bx-minus'></i></button>
                </div>
           </div>
      );
