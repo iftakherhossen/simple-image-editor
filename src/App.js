@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Controls from './Components/Controls';
 import EditorPanel from './Components/EditorPanel';
@@ -8,10 +8,11 @@ const App = () => {
   const [image, setImage] = useState();
   const [name, setName]= useState('');
   
-  const fileInput = document.querySelector(".file-input"), filterOptions = document.querySelectorAll(".filter button"), filterName = document.querySelector(".filter-info .name"), filterValue = document.querySelector(".filter-info .value"), filterSlider = document.querySelector(".slider input"), rotateOptions = document.querySelectorAll(".rotate button"), previewImg = document.querySelector(".preview-img img"), chooseImgBtn = document.querySelector(".choose-img");
+  const filterOptions = document.querySelectorAll(".filter button"), filterName = document.querySelector(".filter-info .name"), filterValue = document.querySelector(".filter-info .value"), filterSlider = document.querySelector(".slider input"), rotateOptions = document.querySelectorAll(".rotate button"), zoomOptions = document.querySelectorAll(".zoom button"), previewImg = document.querySelector(".preview-img img");
 
   let brightness = "100", saturation = "100", inversion = "0", grayscale = "0";
   let rotate = 0, flipHorizontal = 1, flipVertical = 1;
+  let counter = 1;  
 
   const loadImage = e => {
     const [file] = e.target.files;
@@ -22,7 +23,7 @@ const App = () => {
   const applyFilter = () => {
     previewImg.style.transform = `rotate(${rotate}deg) scale(${flipHorizontal}, ${flipVertical})`;
     previewImg.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`;
-  } ;
+  };
   
   filterOptions.forEach(option => {
     option.addEventListener("click", () => {
@@ -56,6 +57,7 @@ const App = () => {
   const updateFilter = () => {
     filterValue.innerText = `${filterSlider.value}%`;
     const selectedFilter = document.querySelector(".filter .active");
+
     if(selectedFilter.id === "brightness") {
       brightness = filterSlider.value;
     } 
@@ -89,11 +91,23 @@ const App = () => {
     });
   });
 
+  zoomOptions.forEach(option => {
+    option.addEventListener("click", () => {
+      if (option.id === "zoom-in") {
+        zoomIn();
+      } 
+      else if (option.id === "zoom-out") {
+        zoomOut();
+      }
+    });
+  });
+
   const resetFilter = () => {
     brightness = "100"; saturation = "100"; inversion = "0"; grayscale = "0";
     rotate = 0; flipHorizontal = 1; flipVertical = 1;
     filterOptions[0].click();
     applyFilter();
+    resetZoom();
   }
 
   const saveImage = () => {
@@ -116,22 +130,40 @@ const App = () => {
     link.click();
   }
 
-  image && filterSlider.addEventListener("input", updateFilter);
-
-  const handleClick = e => {
-    if (chooseImgBtn || fileInput) {
-      chooseImgBtn.addEventListener("click", () => fileInput.click());
-    }    
+  const zoomIn = () => {
+    if(counter < 2){
+      counter += 0.1;
+      previewImg.style.transform = `scale(${counter})`;
+    }
   }
 
+  const zoomOut = () => {
+    if(counter > 0.2){
+      counter -= 0.1;
+      previewImg.style.transform = `scale(${counter})`;
+    }
+  }
+
+  const resetZoom = () => {
+    previewImg.style.transform = "scale(1)";
+    counter = 1;
+  }
+
+  image && filterSlider.addEventListener("input", updateFilter);
+
   return (
-    <div className={`container ${image || 'disable'}`}>
-      <h2>Simple Image Editor</h2>
-      <div className='wrapper'>
-        <EditorPanel />  
-        <ImagePreview image={image} />
+    <div>
+      <div className={`container ${image || 'disable'}`}>
+        <h2>Simple Image Editor</h2>
+        <div className='wrapper'>
+          <EditorPanel />  
+          <ImagePreview image={image} />
+        </div>
+        <Controls loadImage={loadImage} resetFilter={resetFilter} saveImage={saveImage} />
       </div>
-      <Controls loadImage={loadImage} resetFilter={resetFilter} saveImage={saveImage} handleClick={handleClick} />
+      <footer>
+        <p>Created by <a href='https://iftakher-hossen.vercel.app/'>Iftakher Hossen</a></p>
+      </footer>
     </div>
   );
 }

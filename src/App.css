@@ -110,6 +110,16 @@
      border-color: #5372F0;
 }
 
+.zoom button {
+     padding: 5px 15px;
+     font-weight: 700;
+     font-size: 20px;
+}
+
+.zoom #zoom-out {
+     margin-left: 10px;
+}
+
 .wrapper .preview-img {
      flex-grow: 1;
      display: flex;
@@ -118,6 +128,7 @@
      border-radius: 5px;
      align-items: center;
      justify-content: center;
+     overflow: hidden;
 }
 
 .preview-img img {
@@ -143,6 +154,7 @@
 .controls .reset-filter {
      color: #6C757D;
      border: 1px solid #6C757D;
+     font-weight: 600;
 }
 
 .controls .reset-filter:hover {
@@ -153,12 +165,14 @@
 .controls .choose-img {
      background: #6C757D;
      border: 1px solid #6C757D;
+     font-weight: 600;
 }
 
 .controls .save-img {
      margin-left: 15px;
      background: #5372F0;
      border: 1px solid #5372F0;
+     font-weight: 600;
 }
 
 .icon-size {
@@ -169,6 +183,15 @@
      font-size: 1.2em;
 }
 
+footer {
+     padding: 10px;
+     text-align: center;
+}
+
+footer a {
+     text-decoration: none;
+     font-weight: 600;
+}
 
 /* responsive css */
 @media screen and (max-width: 760px) {
