@@ -165,7 +165,7 @@ const App = () => {
         <Controls loadImage={loadImage} resetFilter={resetFilter} saveImage={saveImage} />
       </main>
       <footer>
-        <p>Created by <a href='https://iftakher-hossen.vercel.app/'>Iftakher Hossen</a></p>
+        <p>Created by <a href='https://iftakherhossen.vercel.app/'>Iftakher Hossen</a></p>
       </footer>
     </div>
   );
