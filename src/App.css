@@ -13,21 +13,21 @@
      pointer-events: none;
 }
 
-.container header {
+header {
      display: flex;
-     align-items: end;
+     align-items: flex-end;
      gap: 6px;
      margin-top: -8px;
 }     
 
-.container header h2 {
+header h2 {
      font-size: 22px;
      font-weight: 500;
 }
 
-.container header p {
+header p {
      font-size: 16px;
-     opacity: 40%;
+     opacity: 0.4;
 }
 
 .container .wrapper {
