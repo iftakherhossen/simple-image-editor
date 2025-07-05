@@ -13,20 +13,20 @@
      pointer-events: none;
 }
 
-.container .heading {
+.heading {
      display: flex;
      align-items: end;
      gap: 6px;
 }     
 
-.container .heading h2 {
+.heading h2 {
      margin-top: -8px;
      font-size: 22px;
      font-weight: 500;
 }
 
 .container .heading small {
-     opacity: 50%;
+     opacity: 40%;
 }
 
 .container .wrapper {
@@ -193,14 +193,13 @@
      font-size: 1.2em;
 }
 
-footer {
-     padding: 10px;
-     text-align: center;
-}
-
-footer a {
+a {
      text-decoration: none;
      font-weight: 600;
+}
+
+a:hover {
+     text-decoration: underline;
 }
 
 /* responsive css */
