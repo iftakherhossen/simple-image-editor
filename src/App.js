@@ -155,19 +155,17 @@ const App = () => {
   image && filterSlider.addEventListener("input", updateFilter);
 
   return (
-    <div>
-      <main className={`container ${image || 'disable'}`}>
-        <header>
-          <h2>Simple Image Editor</h2>
-          <p>Created by <a href='https://iftakherhossen.vercel.app/'>Iftakher Hossen</a></p>
-        </header>
-        <div className='wrapper'>
-          <EditorPanel />  
-          <ImagePreview image={image} />
-        </div>
-        <Controls loadImage={loadImage} resetFilter={resetFilter} saveImage={saveImage} />
-      </main>
-    </div>
+    <main className={`container ${image || 'disable'}`}>
+      <header>
+        <h2>Simple Image Editor</h2>
+        <p>Created by <a href='https://iftakherhossen.vercel.app/'>Iftakher Hossen</a></p>
+      </header>
+      <div className='wrapper'>
+        <EditorPanel />  
+        <ImagePreview image={image} />
+      </div>
+      <Controls loadImage={loadImage} resetFilter={resetFilter} saveImage={saveImage} />
+    </main>
   );
 }
 
