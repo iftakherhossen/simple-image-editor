@@ -13,10 +13,20 @@
      pointer-events: none;
 }
 
-.container h2 {
+.container .heading {
+     display: flex;
+     align-items: end;
+     gap: 6px;
+}     
+
+.container .heading h2 {
      margin-top: -8px;
      font-size: 22px;
      font-weight: 500;
+}
+
+.container .heading small {
+     opacity: 50%;
 }
 
 .container .wrapper {
