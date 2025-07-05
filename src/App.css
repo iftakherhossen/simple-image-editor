@@ -13,19 +13,19 @@
      pointer-events: none;
 }
 
-.heading {
+.container header {
      display: flex;
      align-items: end;
      gap: 6px;
 }     
 
-.heading h2 {
+.container header h2 {
      margin-top: -8px;
      font-size: 22px;
      font-weight: 500;
 }
 
-.container .heading p {
+.container header p {
      font-size: 16px;
      opacity: 40%;
 }
