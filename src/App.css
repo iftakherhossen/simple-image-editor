@@ -25,7 +25,8 @@
      font-weight: 500;
 }
 
-.container .heading small {
+.container .heading p {
+     font-size: 16px;
      opacity: 40%;
 }
 

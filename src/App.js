@@ -159,7 +159,7 @@ const App = () => {
       <main className={`container ${image || 'disable'}`}>
         <div className="heading">
           <h2>Simple Image Editor</h2>
-          <small>Created by <a href='https://iftakherhossen.vercel.app/'>Iftakher Hossen</a></small>
+          <p>Created by <a href='https://iftakherhossen.vercel.app/'>Iftakher Hossen</a></small>
         </div>
         <div className='wrapper'>
           <EditorPanel />  
